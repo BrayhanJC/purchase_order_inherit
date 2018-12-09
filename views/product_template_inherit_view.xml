@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Add fields to model product template  -->
+		<record model="ir.ui.view" id="product_template_inherit">
+			<field name="name">product_template_inherit</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_form_view"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//group[@name='group_lots_and_weight']" position="replace">
+
+					<group string="Logistics" name="group_lots_and_weight" attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}">
+
+						<label for="weight"/>
+						<div class="o_row" name="weight" >
+							<field name="weight" style="width: 30%%" nolabel="1"/>
+							<span>kg</span>
+						</div>
+						<label for="volume"/>
+						<div class="o_row" name="volume">
+							<field name="volume" string="Volume" style="width: 30%%" nolabel="1"/>
+							<span>m³</span>
+						</div>
+
+						<label for="inner"/>
+						<div class="o_row" name="inner">
+							<field name="inner" string="Inner" style="width: 30%%" nolabel="1"/>
+						</div>
+
+						<label for="master"/>
+						<div  name="master">
+							<field name="master" string="Master" style="width: 30%%" nolabel="1"/>
+						</div>
+
+					</group>
+
+				</xpath>
+
+			</field>
+		</record> 
+		
+	</data>
+</openerp>

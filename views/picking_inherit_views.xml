@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Add attributes to field move_lines -->
+		<record model="ir.ui.view" id="stock_picking_inherit">
+			<field name="name">stock_picking_inherit</field>
+			<field name="model">stock.picking</field>
+			<field name="inherit_id" ref="stock.view_picking_form"/>
+			<field name="arch" type="xml">
+
+			<xpath expr="//field[@name='move_lines']" position="attributes">
+				<attribute name="widget">many2many</attribute>
+			</xpath>
+
+			</field>
+		</record> 
+		
+	</data>
+</openerp>

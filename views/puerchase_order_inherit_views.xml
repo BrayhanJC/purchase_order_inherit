@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!-- Add fields to model puerchase order -->
+		<record model="ir.ui.view" id="purchase_order_inherit_form">
+			<field name="name">purchase_order_inherit</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='company_id']" position="after">
+					<field name="origin_port"/>
+					<field name="destination_port"/>
+				</xpath>
+
+				<xpath expr="//field[@name='notes']" position="before">
+					<div>
+						<label for="total_volumen" name="total_volumen" string="Total Volumen: " class="oe_inline"/>
+						<field name="total_volumen" class="oe_inline"/><span> m³</span>
+					</div>
+					<newline/>
+					<div>
+						<label for="total_box" name="total_box" string="Total Box: " class="oe_inline"/>
+						<field name="total_box" class="oe_inline"/><span> Unidad(es)</span>
+					</div>
+				</xpath>
+
+				<xpath expr="//field[@name='order_line']" position="replace">
+					
+					<field name="order_line" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}">
+						 <tree string="Purchase Order Lines" editable="top">
+							<field name="currency_id" invisible="1"/>
+							<field name="state" invisible="1"/>
+							<field name="sequence" widget="handle"/>
+							<field name="product_id" attrs="{'readonly': [('state', 'in', ('purchase', 'to approve','done', 'cancel'))]}" context="{'partner_id':parent.partner_id, 'quantity':product_qty,'uom':product_uom, 'company_id': parent.company_id}" force_save="1"/>
+							<field name="name"/>
+							<field name="move_dest_ids" invisible="1"/>
+							<field name="date_planned"/>
+							<field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+							<field name="account_analytic_id" context="{'default_partner_id':parent.partner_id}" groups="purchase.group_analytic_accounting"/>
+							<field name="analytic_tag_ids" groups="purchase.group_analytic_accounting" widget="many2many_tags" options="{'color_field': 'color'}"/>
+							<field name="product_qty"/>
+							<field name="volumen"/>
+							<field name="box"/>
+							<field name="qty_received" invisible="not context.get('show_purchase', True)"/>
+							<field name="qty_invoiced" invisible="not context.get('show_purchase', True)"/>
+							<field name="product_uom" groups="product.group_uom" attrs="{'readonly': [('state', 'in', ('purchase', 'done', 'cancel'))]}" force_save="1"/>
+							<field name="price_unit"/>
+							<field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use','=','purchase')]" context="{'default_type_tax_use': 'purchase'}" options="{'no_create': True}"/>
+							<field name="price_subtotal" widget="monetary"/>
+						</tree>
+						<form string="Purchase Order Line">
+							<sheet>
+								<field name="state" invisible="1"/>
+								<group>
+									<group>
+										<field name="product_id" context="{'partner_id': parent.partner_id}"/>
+										<label for="product_qty"/>
+										<div>
+											<field name="product_qty" class="oe_inline"/>
+											<span class="oe_inline"> </span>
+											<field name="product_uom" groups="product.group_uom" class="oe_inline"/>
+										</div>
+										<field name="price_unit"/>
+										<field name="volumen"/>
+										<field name="box"/>
+									</group>
+									<group>
+										<field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase')]" options="{'no_create': True}"/>
+										<field name="date_planned" widget="date"/>
+										<field name="account_analytic_id" colspan="2" groups="purchase.group_analytic_accounting"/>
+										<field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+									</group>
+								</group>
+								<notebook>
+								<page string="Notes">
+									<field name="name"/>
+								</page><page string="Invoices and Incoming Shipments">
+									<field name="invoice_lines"/>
+									<field name="move_ids"/>
+								</page>
+								</notebook>
+							</sheet>
+						</form>
+					</field>
+						
+				</xpath>
+			</field>
+		</record> 
+
+	</data>
+</openerp>
