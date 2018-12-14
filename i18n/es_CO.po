@@ -1,0 +1,312 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_order_inherit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181206\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-14 04:36+0000\n"
+"PO-Revision-Date: 2018-12-14 04:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "<span> Unidad(es)</span>"
+msgstr "<span> Unidad(es)</span>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "<span> m³</span>"
+msgstr "<span> m³</span>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.product_template_inherit
+msgid "<span>kg</span>"
+msgstr "<span>kg</span>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.product_template_inherit
+msgid "<span>m³</span>"
+msgstr "<span>m³</span>"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_code
+msgid "Code"
+msgstr "Código"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_create_date
+msgid "Created on"
+msgstr "Creado"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_order_destination_port_id
+msgid "Destination Port"
+msgstr "Destination Port"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_display_name
+msgid "Display Name"
+msgstr "Nombre Público"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_id
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.product_template_inherit
+msgid "Inner"
+msgstr "Inner"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "Invoices and Incoming Shipments"
+msgstr "Facturas y Envíos Entrantes"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port___last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_write_date
+msgid "Last Updated on"
+msgstr "Actualizado"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.product_template_inherit
+msgid "Logistics"
+msgstr "Logística"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.product_template_inherit
+msgid "Master"
+msgstr "Master"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_name
+msgid "Name Port"
+msgstr "Name Port"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: purchase_order_inherit
+#: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_order_origin_port_id
+msgid "Origin Port"
+msgstr "Puerto Origen"
+
+#. module: purchase_order_inherit
+#: model:ir.model,name:purchase_order_inherit.model_product_template
+msgid "Product Template"
+msgstr "Plantilla del Producto"
+
+#. module: purchase_order_inherit
+#: model:ir.model,name:purchase_order_inherit.model_purchase_order
+msgid "Purchase Order"
+msgstr "Orden de Compra"
+
+#. module: purchase_order_inherit
+#: model:ir.model,name:purchase_order_inherit.model_purchase_order_line
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "Purchase Order Line"
+msgstr "Línea de Orden de Compra"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "Purchase Order Lines"
+msgstr "Líneas de Orden de Compra"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "Total Box:"
+msgstr "Total Cajas:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.purchase_order_inherit_form
+msgid "Total Volumen:"
+msgstr "Total Volumen:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase_order_inherit.product_template_inherit
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: purchase_order_inherit
+#: model:ir.model,name:purchase_order_inherit.model_purchase_port
+msgid "purchase.port"
+msgstr "purchase.port"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>BARCODE</strong>"
+msgstr "<strong>Código de Barras</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>CARTON</strong>"
+msgstr "<strong>CARTON</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>CBM UNIT</strong>"
+msgstr "<strong>CBM UNIT</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Comments or Special Instructions</strong>"
+msgstr "<strong>Comentarios o instrucciones especiales</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>DESCRIPTION</strong>"
+msgstr "<strong>DESCRIPCIÓN</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>INNER</strong>"
+msgstr "<strong>INNER</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>MASTER</strong>"
+msgstr "<strong>MASTER</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>PURCHARSE ORDER:</strong>"
+msgstr "<strong>ORDEN DE COMPRA:</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>QTY</strong>"
+msgstr "<strong>Ctdad</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>REFERENCE</strong>"
+msgstr "<strong>REFERENCIA</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Subtotal</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>TOTAL CBM</strong>"
+msgstr "<strong>TOTAL CBM</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>TOTAL</strong>"
+msgstr "<strong>TOTAL</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>UNIT PRICE</strong>"
+msgstr "<strong>PRECIO UNITARIO</strong>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Adress:"
+msgstr "Dirección:"
+
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<h3>SUPPLIER</h3>"
+msgstr "<h3>PROVEEDOR</h3>"
+
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Company name:"
+msgstr "Nombre Compañia:"
+
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Contact name:"
+msgstr "Nombre Contacto"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "City:"
+msgstr "Ciudad:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Province:"
+msgstr "Provincia:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Adress:"
+msgstr "Dirección:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Phone:"
+msgstr "Telefono:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Currency:"
+msgstr "Moneda:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Payment Terms:"
+msgstr "Terminos de Pago:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Port Of Destination:"
+msgstr "Puerto de Destino:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<td>Taxes</td>"
+msgstr "<td>Impuestos</td>"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Incoterm:"
+msgstr "Incoterm:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Inspection:"
+msgstr "Inspección:"
+
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Port Of Origin:"
+msgstr "Puerto de Origen:"

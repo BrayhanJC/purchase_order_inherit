@@ -24,34 +24,10 @@
 
 from odoo import api, fields, models, _
 
-class PurchaseOrderInherit(models.Model):
-	_inherit = "purchase.order"
+class PurchasePort(models.Model):
+	_name = "purchase.port"
 
-	#origin_port = fields.Char(string='Origin Port')
-	#destination_port = fields.Char(string='Destination Port')
-	origin_port_id = fields.Many2one('purchase.port', string='Origin Port')
-	destination_port_id = fields.Many2one('purchase.port', string='Destination Port')
-	total_volumen = fields.Float(string='Total Volumen(m³)', compute='_compute_volumen_total')
-	total_box= fields.Float(string='Total Box', compute='_compute_box_total')
+	name = fields.Char(string='Name Port', required=True)
+	code = fields.Integer(string='Code', required=True)
 
-	def _compute_volumen_total(self):
-		for purchase in self:
-			vol_total = 0
-			for line in purchase.order_line:
-				if line.product_id:
-					vol_total += line.volumen or 0.0
-					
-			purchase.total_volumen = vol_total
-
-
-	def _compute_box_total(self):
-		for purchase in self:
-			box_total = 0
-			for line in purchase.order_line:
-				if line.product_id:
-					box_total += line.box or 0.0
-					
-		self.total_box = box_total
-
-
-PurchaseOrderInherit()
+PurchasePort()

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="purchase_port_form" model="ir.ui.view">
+            <field name="name">purchase.port.form</field>
+            <field name="model">purchase.port</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="code" />
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="purchase._port_tree" model="ir.ui.view">
+            <field name="name">purchase.port.tree</field>
+            <field name="model">purchase.port</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+    
+    </data>
+</openerp>

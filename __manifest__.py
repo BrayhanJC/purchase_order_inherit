@@ -41,7 +41,10 @@
     'data': [
         'views/puerchase_order_inherit_views.xml',
         'views/product_template_inherit_view.xml',
-        'views/picking_inherit_views.xml'
+        'views/purchase_port_view.xml',
+        'report/purchase_order_templates_inherit.xml'
+
+
     ],
     'demo': [
     ],
