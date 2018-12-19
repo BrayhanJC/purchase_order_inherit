@@ -27,8 +27,8 @@ from odoo import api, fields, models, _
 class PurchaseOrderInherit(models.Model):
 	_inherit = "purchase.order"
 
-	#origin_port = fields.Char(string='Origin Port')
-	#destination_port = fields.Char(string='Destination Port')
+	origin_port = fields.Char(string='Origin Port')
+	destination_port = fields.Char(string='Destination Port')
 	origin_port_id = fields.Many2one('purchase.port', string='Origin Port')
 	destination_port_id = fields.Many2one('purchase.port', string='Destination Port')
 	total_volumen = fields.Float(string='Total Volumen(m³)', compute='_compute_volumen_total')

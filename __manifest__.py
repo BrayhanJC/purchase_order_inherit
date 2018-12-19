@@ -42,9 +42,9 @@
         'views/puerchase_order_inherit_views.xml',
         'views/product_template_inherit_view.xml',
         'views/purchase_port_view.xml',
-        'report/purchase_order_templates_inherit.xml'
-
-
+        'report/purchase_order_templates_inherit.xml',
+        'report/sale_order_template_inherit.xml',
+        'report/report_stockpicking_operations_inherit.xml',
     ],
     'demo': [
     ],
