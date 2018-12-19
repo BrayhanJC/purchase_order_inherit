@@ -13,6 +13,13 @@
 					<field name="destination_port_id"/>
 				</xpath>
 
+				<xpath expr="//field[@name='currency_id']" position="after">
+					<field name="engrave"/>
+					<field name="testing"/>
+					<field name="inspection"/>
+					<field name="check_currency"/>
+				</xpath>
+
 				<xpath expr="//field[@name='notes']" position="before">
 					<div>
 						<label for="total_volumen" name="total_volumen" string="Total Volumen: " class="oe_inline"/>

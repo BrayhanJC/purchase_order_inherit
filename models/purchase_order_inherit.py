@@ -23,7 +23,10 @@
 ##############################################################################
 
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError, ValidationError
 
+import logging
+_logger = logging.getLogger(__name__)
 class PurchaseOrderInherit(models.Model):
 	_inherit = "purchase.order"
 
@@ -33,6 +36,12 @@ class PurchaseOrderInherit(models.Model):
 	destination_port_id = fields.Many2one('purchase.port', string='Destination Port')
 	total_volumen = fields.Float(string='Total Volumen(m³)', compute='_compute_volumen_total')
 	total_box= fields.Float(string='Total Box', compute='_compute_box_total')
+	engrave= fields.Char('Engrave')
+	testing= fields.Char('Testing')
+	inspection= fields.Char(u'Inspección')
+	check_currency =  fields.Boolean('Validar Moneda')
+
+
 
 	def _compute_volumen_total(self):
 		for purchase in self:
@@ -54,4 +63,14 @@ class PurchaseOrderInherit(models.Model):
 		self.total_box = box_total
 
 
+	@api.model
+	def create(self, vals):
+		company_id = vals.get('company_id', self.env.user.company_id.id)
+		if vals.get('check_currency') == False:
+			raise UserError(_("Por Favor Validar la Tasa de Cambio del día."))
+
+		res = super(PurchaseOrderInherit, self).create(vals)
+
+		return res
+		
 PurchaseOrderInherit()

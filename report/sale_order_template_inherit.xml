@@ -7,10 +7,12 @@
 
 			<div class="page">
 				<div class="oe_structure"/>
-				<div class="row">
+					<div class="row">
 
 						<div class="col-xs-6">
-							<P>NIT:</P>
+							<t t-if="doc.company_id.partner_id.type_ident_id">
+								NIT:<span t-field="doc.company_id.partner_id.type_ident_id.name"/>
+							</t>
 							<div>
 								<strong t-field="doc.company_id.partner_id.name"/>
 							</div>
@@ -19,18 +21,25 @@
 						</div>
 
 						<div class="col-xs-6">
+
 						   <div align="center">
 								<h4><strong>FACTURA DE VENTA</strong></h4>
 								<p>IVA REGIMEN COMUN ACTIVIDAD ECONOMICA XXXX</p>
 								<p>NO SOMOS GRANDES CONTRIBUYENTES NI AUTORETENEDORES</p>
 							</div>
-							<div align="right">
-								<p>FECHA:<span t-field="doc.date_order"/></p>
-								<p  border-left-style="solid">FACTURA No: <span t-field="doc.name"/></p>
+
+							<div align="center">
+								<div class="row">
+									<div class="col-xs-6" align="right"><strong>FECHA:</strong></div>
+									<div class="col-xs-6" align="left"><span t-field="doc.date_order"/></div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6" align="right"><strong>FACTURA No:</strong></div>
+									<div class="col-xs-6" align="left"><span t-field="doc.name"/></div>
+								</div>
 							</div>
 						</div>
-
-				</div>
+					</div>
 
 				<br/>
 
@@ -38,15 +47,29 @@
 
 				<div class="row mt32 mb32">
 					<div class="col-xs-4">
-						<p>Razon Social/Nombre:<span t-field="doc.partner_id.company_id.name"/></p>
-						<p>NIT: xxx </p>
-						<p>Direccion: <span t-field="doc.partner_id.street"/></p>
-						<p>Telefono: <span t-field="doc.partner_id.phone"/> - <span t-field="doc.partner_id.mobile"/></p>
+						<t t-if="doc.partner_id.company_id.name">
+							<p>Razon Social/Nombre:<span t-field="doc.partner_id.company_id.name"/></p>
+						</t>
+						<t t-if="doc.partner_id.type_ident_id">
+							NIT:<span t-field="doc.partner_id.type_ident_id.name"/>
+						</t>
+						<t t-if="doc.partner_id.street">
+							<p>Direccion: <span t-field="doc.partner_id.street"/></p>
+						</t>
+						<t t-if="doc.partner_id.phone">
+							<p>Telefono: <span t-field="doc.partner_id.phone"/> - <span t-field="doc.partner_id.mobile"/></p>
+						</t>
 					</div>
 					<div class="col-xs-4">
-						<p>Ciudad: <span t-field="doc.date_order"/></p>
-						<p>Condiciones de Pago: <span t-field="doc.payment_term_id.name"/></p>
-						<p>Fecha de Vencimiento: <span t-field="doc.validity_date"/></p>
+						<t t-if="doc.partner_id.city">
+							<p>Ciudad: <span t-field="doc.partner_id.city"/></p>
+						</t>
+						<t t-if="doc.payment_term_id.name">
+							<p>Condiciones de Pago: <span t-field="doc.payment_term_id.name"/></p>
+						</t>
+						<t t-if="doc.validity_date">
+							<p>Fecha de Vencimiento: <span t-field="doc.validity_date"/></p>
+						</t>
 					</div>
 				</div>
 

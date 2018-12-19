@@ -12,7 +12,9 @@
 							<div class="row">
 
 									<div class="col-xs-6">
-										<P>NIT:</P>
+										<t t-if="o.company_id.partner_id.type_ident_id">
+											NIT:<span t-field="o.company_id.partner_id.type_ident_id.name"/>
+										</t>
 										<div>
 											<strong t-field="o.company_id.partner_id.name"/>
 										</div>
@@ -50,14 +52,29 @@
 
 							<div class="row mt32 mb32">
 								<div class="col-xs-4">
-									<p>Señor(es):<span t-field="o.partner_id.name"/></p>
-									<p>NIT: xxx </p>
-									<p>Sucursal: <span t-field="o.partner_id.company_id.name"/></p>
+									<t t-if="o.partner_id.name">
+										<p>Señor(es):<span t-field="o.partner_id.name"/></p>
+									</t>
+									<t t-if="o.partner_id.name">
+										<t t-if="o.partner_id.type_ident_id">
+											NIT:<span t-field="o.partner_id.type_ident_id.name"/>
+										</t>
+									</t>
+									<t t-if="o.partner_id.company_id.name">
+										<p>Sucursal: <span t-field="o.partner_id.company_id.name"/></p>
+									</t>
 								</div>
 								<div class="col-xs-4">
-									<p>Dirección Entrega Mercancía: <span t-field="o.partner_id.street"/></p>
-									<p>Teléfono: <span t-field="o.partner_id.phone"/> - <span t-field="o.partner_id.mobile"/></p>
-									<p>Ciudad: <span t-field="o.partner_id"/></p>
+
+									<t t-if="o.partner_id.street">
+										<p>Dirección Entrega Mercancía: <span t-field="o.partner_id.street"/></p>
+									</t>
+									<t t-if="o.partner_id.phone">
+										<p>Teléfono: <span t-field="o.partner_id.phone"/> - <span t-field="o.partner_id.mobile"/></p>
+									</t>
+									<t t-if="o.partner_id.city">
+										<p>Ciudad: <span t-field="o.partner_id.city"/></p>
+									</t>
 								</div>
 							</div>
 
