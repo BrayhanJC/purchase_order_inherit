@@ -38,7 +38,7 @@
 				<div class="row mt32 mb32">
 					<div class="col-xs-4">
 						<t t-if="o.partner_id.company_id.name">
-							<p>Company name: <span t-field="o.partner_id.company_id.name"/></p>
+							<p>Company name: <span t-field="o.partner_id.name"/></p>
 						</t>
 						<t t-if="o.partner_id.name">
 							<p>Contact name: <span t-field="o.partner_id.name"/></p>
@@ -53,12 +53,12 @@
 							<p>Province: <span t-field="o.partner_id.country_id.name"/></p>
 						</t>
 						<t t-if="o.partner_id.mobile">
-							<p>Teléfono: <span t-field="o.partner_id.phone"/> - <span t-field="o.partner_id.mobile"/></p>
+							<p>Phone: <span t-field="o.partner_id.phone"/> - <span t-field="o.partner_id.mobile"/></p>
 						</t>
 
 					</div>
 					<div class="col-xs-4">
-						<p>Tax ID: xxx</p>
+						<p>Tax ID:</p>
 						<t t-if="o.currency_id.name">
 							<p>Currency: <span t-field="o.currency_id.name"/></p>
 						</t>

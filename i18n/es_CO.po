@@ -100,6 +100,8 @@ msgstr "Logística"
 msgid "Master"
 msgstr "Master"
 
+
+
 #. module: purchase_order_inherit
 #: model:ir.model.fields,field_description:purchase_order_inherit.field_purchase_port_name
 msgid "Name Port"
@@ -164,7 +166,7 @@ msgstr "<strong>Código de Barras</strong>"
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<strong>CARTON</strong>"
-msgstr "<strong>CARTON</strong>"
+msgstr "<strong>CAJA</strong>"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -184,12 +186,12 @@ msgstr "<strong>DESCRIPCIÓN</strong>"
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<strong>INNER</strong>"
-msgstr "<strong>INNER</strong>"
+msgstr "<strong>INTERIOR</strong>"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<strong>MASTER</strong>"
-msgstr "<strong>MASTER</strong>"
+msgstr "<strong>MAESTRO</strong>"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -237,12 +239,20 @@ msgstr "<strong>PRECIO UNITARIO</strong>"
 msgid "Adress:"
 msgstr "Dirección:"
 
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Date:"
+msgstr "Fecha:"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<h3>SUPPLIER</h3>"
 msgstr "<h3>PROVEEDOR</h3>"
 
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "SUPPLIER"
+msgstr "PROVEEDOR"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -292,8 +302,8 @@ msgstr "Puerto de Destino:"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
-msgid "<td>Taxes</td>"
-msgstr "<td>Impuestos</td>"
+msgid "Taxes"
+msgstr "Impuestos"
 
 #. module: purchase_order_inherit
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -310,3 +320,20 @@ msgstr "Inspección:"
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "Port Of Origin:"
 msgstr "Puerto de Origen:"
+
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Testing:"
+msgstr "Pruebas:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Tax ID:"
+msgstr "Impuesto ID:"
+
+#. module: purchase_order_inherit
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Engrave:"
+msgstr "Grabar:"
+
