@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-	<template id="purchase_order_inherit.report_saleorder_report">
+	<template id="purchase_order_inherit.report_invoice_document">
 		<t t-call="web.external_layout">
 			<t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
 
@@ -33,11 +33,11 @@
 							<div align="center">
 								<div class="row">
 									<div class="col-xs-6" align="right"><strong>FECHA:</strong></div>
-									<div class="col-xs-6" align="left"><span t-field="doc.date_order"/></div>
+									<div class="col-xs-6" align="left"><span t-field="doc.date_invoice"/></div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6" align="right"><strong>FACTURA No:</strong></div>
-									<div class="col-xs-6" align="left"><span t-field="doc.name"/></div>
+									<div class="col-xs-6" align="left"><span t-field="doc.number"/></div>
 								</div>
 							</div>
 						</div>
@@ -71,80 +71,67 @@
 						<t t-if="doc.payment_term_id.name">
 							<p>Condiciones de Pago: <span t-field="doc.payment_term_id.name"/></p>
 						</t>
-						<t t-if="doc.validity_date">
-							<p>Fecha de Vencimiento: <span t-field="doc.validity_date"/></p>
+						<t t-if="doc.date_due">
+							<p>Fecha de Vencimiento: <span t-field="doc.date_due"/></p>
 						</t>
 					</div>
 				</div>
 
-				<t t-foreach="doc.order_lines_layouted()" t-as="page">
-					<table class="table table-condensed">
-						<thead>
+				<table class="table table-condensed" name="invoice_line_table">
+					<thead>
+						<tr style="background-color:#bfbfbf;">
+							<th class="text-center">REFERENCIA</th>
+							<th class="text-center" width="15%">COD BARRA</th>
+							<th class="text-center" width="35%">DESCRIPCION</th>
+							<th class="text-center">CANTIDAD</th>
+							<th class="text-right">PRECIO UN</th>
+							<th class="text-right price_tax_included" groups="sale.group_show_price_total">Total</th>
+						</tr>
+					</thead>
+					<tbody class="invoice_tbody">
+						<tr t-foreach="doc.invoice_line_ids" t-as="l">
 
-							<tr style="background-color:#bfbfbf;">
-								<th class="text-center">REFERENCIA</th>
-								<th class="text-center" width="15%">COD BARRA</th>
-								<th class="text-center" width="35%">DESCRIPCION</th>
-								<th class="text-center">CANTIDAD</th>
-								<th class="text-right">PRECIO UN</th>
-								<th class="text-right price_tax_included" groups="sale.group_show_price_total">Total</th>
-							</tr>
 
-					   </thead>
-					   <tbody class="sale_tbody">
-							<t t-foreach="page" t-as="layout_category">
 
-								<t t-if="layout_category_size > 1 or page_size > 1" groups="sale.group_sale_layout">
-									<tr class="active">
-										<td colspan="7" style="font-weight: bold; border-bottom: 1px solid black;">&amp;bull;
-											<t t-esc="layout_category['name']"/>
-										</td>
-									</tr>
-								</t>
+									<td class="text-justify">
+										<span t-field="l.name"/>
+									</td>
 
-								<t t-foreach="layout_category['lines']" t-as="l">
-									<tr>
-										<td class="text-justify">
-											<span t-field="l.name"/>
-										</td>
+									<td class="text-center"> 
+										<t>
+											<span t-if="l.product_id and l.product_id.barcode">
+												<img t-if="l.product_id.barcode and len(l.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', l.product_id.barcode, 600, 100)" style="width:100%;height:50px"/>
+												<img t-elif="l.product_id.barcode and len(l.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', l.product_id.barcode, 600, 100)" style="width:100%;height:50px"/>
+												<img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', l.product_id.barcode, 600, 100)" style="width:100%;height:50px"/>
+											</span>
+										</t>
+									</td>
 
-										<td class="text-center"> 
-											<t>
-												<span t-if="l.product_id and l.product_id.barcode">
-													<img t-if="l.product_id.barcode and len(l.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', l.product_id.barcode, 600, 100)" style="width:100%;height:50px"/>
-													<img t-elif="l.product_id.barcode and len(l.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', l.product_id.barcode, 600, 100)" style="width:100%;height:50px"/>
-													<img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', l.product_id.barcode, 600, 100)" style="width:100%;height:50px"/>
-												</span>
-											</t>
-										</td>
+									<td class="text-justify">
+										<span t-field="l.name"/>
+									</td>
 
-										<td class="text-justify">
-											<span t-field="l.name"/>
-										</td>
+									<td class="text-right">
+										<span t-field="l.quantity"/>
+										<span t-field="l.uom_id" groups="product.group_uom"/>
+									</td>
 
-										<td class="text-right">
-											<span t-field="l.product_uom_qty"/>
-											<span t-field="l.product_uom" groups="product.group_uom"/>
-										</td>
+									<td class="text-right">
+										<span t-field="l.price_unit"/>
+									</td>
 
-										<td class="text-right">
-											<span t-field="l.price_unit"/>
-										</td>
+									<td class="text-right" groups="sale.group_show_price_total">
+										<span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+									</td>
 
-										<td class="text-right" groups="sale.group_show_price_total">
-											<span t-field="l.price_total"
-												t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-										</td>
-									</tr>
-								</t>
-							</t>
-						</tbody>
-					</table>
+						</tr>
 
-					<t t-if="page_index &lt; page_size - 1" groups="sale.group_sale_layout">
-						<p style="page-break-before:always;"> </p>
-					</t>
-				</t>
+					</tbody>
+				</table>
+
+
+				<t t-set="display_discount" t-value="any([l.discount for l in doc.invoice_line_ids])"/>
+	
 
 				<br/>
 
@@ -182,50 +169,26 @@
 						<div class="col-xs-4 pull-right">
 							<table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
 								<tr class="border-black" style="border-bottom:1px solid #dddddd;">
-									<td><strong>Subtotal</strong></td>
-									<td class="text-right">
-										<span t-field="doc.amount_untaxed"
-											t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-									</td>
+                                        <td><strong>Subtotal</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_untaxed" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                        </td>
 								</tr>
 
 								<tr class="border-black" style="border-bottom:1px solid #dddddd;">
 									<td>Descuento</td>
 									<td class="text-right">
-									<t t-set="discount" t-value="sum((m.discount) for m in doc.order_line)"/>
+										<t t-set="discount" t-value="sum((m.discount) for m in doc.invoice_line_ids)"/>
 										<span><t t-esc="discount"/>%</span>
 									</td>
 								</tr>
-								<t t-foreach="doc._get_tax_amount_by_group()" t-as="amount_by_group">
-									<tr style="border-bottom:1px solid #dddddd;">
-										<t t-if="amount_by_group[3] == 1 and doc.amount_untaxed == amount_by_group[2]">
-											<td>
-												<span t-esc="amount_by_group[0]"/>
-												<span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/></span>
-											</td>
-											<td class="text-right">
-												<span t-esc="amount_by_group[1]"
-													t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-											</td>
-										</t>
-										<t t-else ="">
-											<td>
-												<span t-esc="amount_by_group[0]"/>
-											</td>
-											<td class="text-right">
-												<span t-esc="amount_by_group[1]"
-													t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-											</td>
-										</t>
-									</tr>
-								</t>
-								<tr class="border-black">
-									<td><strong>Total</strong></td>
-									<td class="text-right">
-										<span t-field="doc.amount_total"
-											t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
-									</td>
-								</tr>
+
+                                    <tr class="border-black">
+                                        <td><strong>Total</strong></td>
+                                        <td class="text-right">
+                                            <span t-field="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                        </td>
+                                    </tr>
 							</table>
 						</div>
 
@@ -259,14 +222,12 @@
 		</t>
 	</template>
 
-	<template id="sale.report_saleorder">
+	<template id="account.report_invoice_with_payments">
 		<t t-call="web.html_container">
 			<t t-foreach="docs" t-as="doc">
-				<t t-call="purchase_order_inherit.report_saleorder_report" t-lang="doc.partner_id.lang"/>
+				<t t-call="purchase_order_inherit.report_invoice_document" t-lang="doc.partner_id.lang"/>
 			</t>
 		</t>
 	</template>
-
-
 
 </odoo>

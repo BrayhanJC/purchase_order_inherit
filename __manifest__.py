@@ -45,6 +45,7 @@
         'report/purchase_order_templates_inherit.xml',
         'report/sale_order_template_inherit.xml',
         'report/report_stockpicking_operations_inherit.xml',
+        'report/report_invoice_inherit.xml'
     ],
     'demo': [
     ],
