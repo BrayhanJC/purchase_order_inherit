@@ -142,7 +142,7 @@
 								<t t-foreach="layout_category['lines']" t-as="l">
 									<tr>
 										<td class="text-justify">
-											<span t-field="l.name"/>
+											<span t-field="l.product_id.default_code"/>
 										</td>
 
 										<td class="text-center"> 

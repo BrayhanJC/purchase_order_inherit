@@ -121,7 +121,7 @@
 										</td>
 
 										<td>
-											<span t-field="move.product_id.name"/><br/>
+											<span t-field="move.name"/><br/>
 										</td>
 
 										<td>
