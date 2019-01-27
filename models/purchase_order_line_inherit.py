@@ -32,17 +32,6 @@ class PurchaseOrderLineInherit(models.Model):
 
 	@api.one
 	@api.depends('product_id', 'product_qty')
-	def _compute_volumen(self):
-
-		for line in self:
-			volumen = 0
-			if line.product_id and line.product_id.volume:
-				volumen += (line.product_id.volume * line.product_qty)
-			
-		self.volumen = volumen
-
-	@api.one
-	@api.depends('product_id', 'product_qty')
 	def _compute_box(self):
 
 		for line in self:
@@ -51,5 +40,18 @@ class PurchaseOrderLineInherit(models.Model):
 				total_box += (line.product_qty/line.product_id.master) or 0
 			
 		self.box = total_box
+
+
+	@api.one
+	@api.depends('product_id', 'product_qty')
+	def _compute_volumen(self):
+
+		for line in self:
+			volumen = 0
+			if line.product_id and line.product_id.volume:
+				volumen += (line.product_id.volume * line.box)
+			
+		self.volumen = volumen
+
 
 PurchaseOrderLineInherit()
