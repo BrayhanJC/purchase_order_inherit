@@ -37,7 +37,7 @@
     'author' : 'Brayhan Jaramillo',
     'website' : 'brayhanjaramillo@hotmail.com',
     'images': ['static/description/banner.jpg'],
-    'depends' : ['sale_management'],
+    'depends' : ['sale_management', 'stock_account'],
     'data': [
         'views/puerchase_order_inherit_views.xml',
         'views/product_template_inherit_view.xml',

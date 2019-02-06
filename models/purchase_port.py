@@ -31,3 +31,37 @@ class PurchasePort(models.Model):
 	code = fields.Integer(string='Code', required=True)
 
 PurchasePort()
+
+class StockPicking(models.Model):
+
+	_inherit = 'stock.picking'
+
+
+	check_currency =  fields.Boolean('Validar Moneda')
+
+	@api.model
+	def create(self, vals):
+		
+		type_operation_id= vals.get('picking_type_id')
+
+		picking_type_currecy= self.env['stock.picking.type'].search([('id', '=', type_operation_id)]).check_currency
+
+		currency_actual= self.env['res.currency'].search([('name', '=', 'COP')]).rate
+
+		if (vals.get('check_currency') == False) and (picking_type_currecy):
+			raise UserError(_("Por Favor Validar la Tasa de Cambio del día. La tasa actual es %s") %(currency_actual))
+
+		res = super(StockPicking, self).create(vals)
+
+		return res
+		
+StockPicking()
+
+class StockPickingType(models.Model):
+
+	_inherit = 'stock.picking.type'
+
+	check_currency =  fields.Boolean('Validar Moneda')
+
+		
+StockPickingType()
